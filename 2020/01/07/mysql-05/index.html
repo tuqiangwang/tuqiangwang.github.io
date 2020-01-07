@@ -17,7 +17,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>mysql_02 | imtutu</title>
+  <title>mysql_05 | imtutu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="MySQL" />
@@ -25,14 +25,14 @@
   
   
   
-  <meta name="description" content="本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。">
+  <meta name="description" content="​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。 where条件查询 查出一张表的所有行,所有列 1Select * from tableName;  查出一张表的所有行,部分列. 1Select id,name,salary from tableName  查出一张表的所有列,部分行(id &gt;&#x3D;2 的行) 1Select * from tabl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql_02">
-<meta property="og:url" content="http://yoursite.com/2020/01/07/mysql-02/index.html">
+<meta property="og:title" content="mysql_05">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/mysql-05/index.html">
 <meta property="og:site_name" content="imtutu">
-<meta property="og:description" content="本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。">
-<meta property="article:published_time" content="2020-01-07T03:35:59.000Z">
-<meta property="article:modified_time" content="2020-01-07T06:02:39.086Z">
+<meta property="og:description" content="​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。 where条件查询 查出一张表的所有行,所有列 1Select * from tableName;  查出一张表的所有行,部分列. 1Select id,name,salary from tableName  查出一张表的所有列,部分行(id &gt;&#x3D;2 的行) 1Select * from tabl">
+<meta property="article:published_time" content="2020-01-07T07:35:38.000Z">
+<meta property="article:modified_time" content="2020-01-07T07:48:30.910Z">
 <meta property="article:author" content="wtq">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -165,7 +165,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-mysql-02" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-mysql-05" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -173,7 +173,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      mysql_02
+      mysql_05
     </h1>
   
 
@@ -181,8 +181,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/01/07/mysql-02/" class="article-date">
-	  <time datetime="2020-01-07T03:35:59.000Z" itemprop="datePublished">January 7, 2020</time>
+	Posted on <a href="/2020/01/07/mysql-05/" class="article-date">
+	  <time datetime="2020-01-07T07:35:38.000Z" itemprop="datePublished">January 7, 2020</time>
 	</a>
 
       
@@ -193,39 +193,17 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="本节讲解MySQL中的增删改查"><a href="#本节讲解MySQL中的增删改查" class="headerlink" title="本节讲解MySQL中的增删改查"></a>本节讲解MySQL中的增删改查</h3><p>在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。<a id="more"></a></p>
-<h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><p>desc name;</p>
-<h3 id="增-insert"><a href="#增-insert" class="headerlink" title="增 insert"></a>增 insert</h3><p>1、往哪张表添加行</p>
-<p>2、添加哪几列</p>
-<p>3、分别是什么值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> &lt;表名&gt; </span><br><span class="line">[ (列名<span class="number">1</span> , … ,列名n) ]  <span class="comment">#这一行可选</span></span><br><span class="line"><span class="keyword">VALUES</span> (值<span class="number">1</span> ,… , 值n) ;</span><br></pre></td></tr></table></figure>
+        <p>​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。</p>
+<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><p>条件查询</p>
+<p>查出一张表的所有行,所有列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select * from tableName;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into values (…,…);#插入的值和表中所有列一致</span><br></pre></td></tr></table></figure>
+<p>查出一张表的所有行,部分列.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select id,name,salary from tableName</span><br></pre></td></tr></table></figure>
 
-<p>如果没有声明列名,则默认插入所有列.</p>
-<p>因此,值应该与全部列,按顺序一一对应.</p>
-<p>如果声明了列（即name后），则values后面需要一一对应。</p>
-<h3 id="删-delete"><a href="#删-delete" class="headerlink" title="删 delete"></a>删 delete</h3><p>删除指的是删除表的一整行，<strong>而不是删除某一列中的值</strong></p>
-<p>1、删哪张表</p>
-<p>2、删哪几行  #where expression</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> &lt;表名&gt; [<span class="keyword">WHERE</span> 子句] [<span class="keyword">ORDER</span> <span class="keyword">BY</span> 子句] [<span class="keyword">LIMIT</span> 子句]</span><br></pre></td></tr></table></figure>
+<p>查出一张表的所有列,部分行(id &gt;=2 的行)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select * from tableName where id &gt;&#x3D;2;</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="改-update"><a href="#改-update" class="headerlink" title="改 update"></a>改 update</h3><p>1、改哪张表</p>
-<p>2、改哪几列</p>
-<p>3、改什么值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> &lt;表名&gt; <span class="keyword">set</span> &lt;列名&gt;=&lt;值或值的表达式&gt;  <span class="keyword">where</span> &lt;条件表达式&gt;；</span><br></pre></td></tr></table></figure>
-
-<p>①有where子句的，将满足WHERE条件的所有行的一个或多个列值改为新的值；</p>
-<p>②没有WHERE子句，则会对该表中所有的记录的指定的列的所有行，进行修改更新操作。</p>
-<h3 id="查select"><a href="#查select" class="headerlink" title="查select"></a>查select</h3><p>这一节只是查的基础入门</p>
-<p>1、查哪张表</p>
-<p>2、查哪些列</p>
-<p>3、查哪些行的数据?</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> expe]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br></pre></td></tr></table></figure>
-
-<p><strong>少用select * from table</strong></p>
 
       
     </div>
@@ -283,19 +261,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/01/07/mysql-03/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          mysql_03
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/07/mysql-01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/01/07/mysql-04/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">mysql_01</div>
+      <div class="article-nav-title">mysql_04</div>
     </a>
   
 </nav>
@@ -309,7 +278,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本节讲解MySQL中的增删改查"><span class="nav-number">1.</span> <span class="nav-text">本节讲解MySQL中的增删改查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表结构"><span class="nav-number">2.</span> <span class="nav-text">查看表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增-insert"><span class="nav-number">3.</span> <span class="nav-text">增 insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删-delete"><span class="nav-number">4.</span> <span class="nav-text">删 delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改-update"><span class="nav-number">5.</span> <span class="nav-text">改 update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查select"><span class="nav-number">6.</span> <span class="nav-text">查select</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#where"><span class="nav-number">1.</span> <span class="nav-text">where</span></a></li></ol>
     
     </div>
   </aside>
