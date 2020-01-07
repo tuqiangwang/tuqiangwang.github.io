@@ -33,7 +33,7 @@
 <meta property="og:description" content="​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。">
 <meta property="og:image" content="https://s2.ax1x.com/2020/01/07/l6Xteg.png">
 <meta property="article:published_time" content="2020-01-07T07:35:38.000Z">
-<meta property="article:modified_time" content="2020-01-07T08:11:25.322Z">
+<meta property="article:modified_time" content="2020-01-07T11:08:38.263Z">
 <meta property="article:author" content="wtq">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,64 @@ var themeMenus = {};
 <p>查出一张表的所有列,部分行(id &gt;=2 的行)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select * from tableName where id &gt;&#x3D;2;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s2.ax1x.com/2020/01/07/l6Xteg.png" alt="avatar"></p>
+<p><img src="https://s2.ax1x.com/2020/01/07/l6Xteg.png" alt="运算符"></p>
+<p>取出第4类和第11类的商品:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT cat_id,goods_name,shop_price FROM goods WHERE cat_id IN (4,11);</span><br></pre></td></tr></table></figure>
+
+<p> 取出不在第3类和第11类的商品:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,cat_id,goods_name FROM goods WHERE cat_id NOT IN (3,11);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模糊查询-like"><a href="#模糊查询-like" class="headerlink" title="模糊查询 like:"></a>模糊查询 like:</h3><p>MySql的like语句中的通配符：百分号、下划线和escape</p>
+<p>%：表示任意个或多个字符。可匹配任意类型和长度的字符。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'%huxiao'</span>;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'huxiao%'</span>;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'%huxiao%'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>另外，如果需要找出u_name中既有“三”又有“猫”的记录，请使用and条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ［<span class="keyword">user</span>］ <span class="keyword">WHERE</span> u_name <span class="keyword">LIKE</span> ‘%三%’ <span class="keyword">AND</span> u_name <span class="keyword">LIKE</span> ‘%猫%’</span><br></pre></td></tr></table></figure>
+
+<p>_：表示任意单个字符。匹配单个任意字符，它常用来限制表达式的字符长度语句：（可以代表一个中文字符）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'_'</span>;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'huxia_'</span>;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'h_xiao'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果我就真的要查%或者_，怎么办呢？使用escape，转义字符后面的%或_就不作为通配符了，注意前面没有转义字符的%和_仍然起通配符作用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> gg_user <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'%xiao/_%'</span> escape <span class="string">'/'</span>;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> gg_user <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'%xiao/%%'</span> escape <span class="string">'/'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询模型-重要"><a href="#查询模型-重要" class="headerlink" title="查询模型(重要)"></a>查询模型(重要)</h2><p><strong>列就是变量,在每一行上,列的值都在变化.</strong></p>
+<p><strong>Where条件是表达式,在哪一行上表达式为真,</strong></p>
+<p><strong>哪一行就取出来</strong></p>
+<p>比如下面的条件, shop_price在不同的行,有不同的值.</p>
+<p>在哪一行时,shop_price&gt;5000如果为真,则这行取出来.</p>
+<p>查询结果集–&gt;在结构上可以当成表看。</p>
+<h3 id="max-min-sum-avg"><a href="#max-min-sum-avg" class="headerlink" title="max min sum avg"></a>max min sum avg</h3><h3 id="count"><a href="#count" class="headerlink" title="count"></a>count</h3><p>select count(*) from 表名, 查询的就是绝对的行数,哪怕某一行所有字段全为NULL,也计算在内.</p>
+<p>而select couht(列名) from 表名,</p>
+<p>查询的是该列不为null的所有行的行数.</p>
+<p><strong>用count(*),count(1),谁好呢?</strong></p>
+<p>其实,对于myisam引擎的表,没有区别的.</p>
+<p>这种引擎内部有一计数器在维护着行数.</p>
+<p>Innodb的表,用count(*)直接读行数,效率很低,因为innodb真的要去数一遍.</p>
+<h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><p>“Group By”从字面意义上理解就是根据“By”指定的规则对数据进行分组，所谓的分组就是将一个“数据集”划分成若干个“小区域”，然后针对若干个“小区域”进行数据处理。</p>
+<p>例如，group by 性别，对班级的数学分数取平均，结果就是两行数据。</p>
+<h2 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h2><p>HAVING 子句和 WHERE 子句非常相似，<strong>HAVING 子句支持 WHERE 子句中所有的操作符和语法</strong>，但是两者存在几点差异：</p>
+<ul>
+<li>WHERE 子句主要用于过滤数据行，而 HAVING 子句主要用于过滤分组，即 HAVING 子句基于分组的聚合值而不是特定行的值来过滤数据，主要用来过滤分组。</li>
+<li>WHERE 子句不可以包含聚合函数，HAVING 子句中的条件可以包含聚合函数。</li>
+<li>HAVING 子句是在数据分组后进行过滤，WHERE 子句会在数据分组前进行过滤。WHERE 子句排除的行不包含在分组中，可能会影响 HAVING 子句基于这些值过滤掉的分组。</li>
+</ul>
+<h3 id="where和having都可以使用的场景"><a href="#where和having都可以使用的场景" class="headerlink" title="where和having都可以使用的场景"></a>where和having都可以使用的场景</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_price,goods_name <span class="keyword">from</span> sw_goods <span class="keyword">where</span> goods_price &gt; <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_price,goods_name <span class="keyword">from</span> sw_goods <span class="keyword">having</span> goods_price &gt; <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<p>解释：上面的having可以用的前提是我已经筛选出了<strong>goods_price</strong>字段，在这种情况下和where的效果是等效的，但是如果我没有select goods_price 就会报错！！因为having是从前筛选的字段再筛选，而where是从数据表中的字段直接进行的筛选的。</p>
+<h3 id="只可以用where，不可以用having的情况"><a href="#只可以用where，不可以用having的情况" class="headerlink" title="只可以用where，不可以用having的情况"></a>只可以用where，不可以用having的情况</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_name,goods_number <span class="keyword">from</span> sw_goods <span class="keyword">where</span> goods_price &gt; <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_name,goods_number <span class="keyword">from</span> sw_goods <span class="keyword">having</span> goods_price &gt; <span class="number">100</span> //报错！！！因为前面并没有筛选出goods_price 字段</span><br></pre></td></tr></table></figure>
+
+<h3 id="只可以用having，不可以用where情况"><a href="#只可以用having，不可以用where情况" class="headerlink" title="只可以用having，不可以用where情况"></a>只可以用having，不可以用where情况</h3><p>查询每种goods_category_id商品的价格平均值，获取平均价格大于1000元的商品信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_category_id , <span class="keyword">avg</span>(goods_price) <span class="keyword">as</span> ag <span class="keyword">from</span> sw_goods <span class="keyword">group</span> <span class="keyword">by</span> goods_category <span class="keyword">having</span> ag &gt; <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> goods_category_id , <span class="keyword">avg</span>(goods_price) <span class="keyword">as</span> ag <span class="keyword">from</span> sw_goods <span class="keyword">where</span> ag&gt;<span class="number">1000</span> <span class="keyword">group</span> <span class="keyword">by</span> goods_category //报错！！因为<span class="keyword">from</span> sw_goods 这张数据表里面没有ag这个字段</span><br></pre></td></tr></table></figure>
+
+<p>注意:<strong>where 后面要跟的是数据表里的字段</strong>，如果我把ag换成avg(goods_price)也是错误的！因为表里没有该字段。而having只是根据前面查询出来的是什么就可以后面接什么。</p>
 
       
     </div>
@@ -283,7 +340,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#where"><span class="nav-number">1.</span> <span class="nav-text">where</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#where"><span class="nav-number">1.</span> <span class="nav-text">where</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊查询-like"><span class="nav-number">1.1.</span> <span class="nav-text">模糊查询 like:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询模型-重要"><span class="nav-number">2.</span> <span class="nav-text">查询模型(重要)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#max-min-sum-avg"><span class="nav-number">2.1.</span> <span class="nav-text">max min sum avg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-number">2.2.</span> <span class="nav-text">count</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group-by"><span class="nav-number">3.</span> <span class="nav-text">group by</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Having"><span class="nav-number">4.</span> <span class="nav-text">Having</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#where和having都可以使用的场景"><span class="nav-number">4.1.</span> <span class="nav-text">where和having都可以使用的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只可以用where，不可以用having的情况"><span class="nav-number">4.2.</span> <span class="nav-text">只可以用where，不可以用having的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只可以用having，不可以用where情况"><span class="nav-number">4.3.</span> <span class="nav-text">只可以用having，不可以用where情况</span></a></li></ol></li></ol>
     
     </div>
   </aside>
