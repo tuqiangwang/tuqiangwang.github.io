@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mysql_create_samples | imtutu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MySQL" />
+  
+  
+  
+  
+  <meta name="description" content="这是B站上燕十八燕老师讲课的资料。 包括建表create语句和insert增加数据的语句。 供所需。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql_create_samples">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/mysql-create-samples/index.html">
+<meta property="og:site_name" content="imtutu">
+<meta property="og:description" content="这是B站上燕十八燕老师讲课的资料。 包括建表create语句和insert增加数据的语句。 供所需。">
+<meta property="article:published_time" content="2020-01-07T12:21:17.000Z">
+<meta property="article:modified_time" content="2020-01-07T12:23:03.366Z">
+<meta property="article:author" content="wtq">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="imtutu" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="imtutu" rel="home"> imtutu </a>
+            
+          </h1>
+
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-mysql-create-samples" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      mysql_create_samples
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/01/07/mysql-create-samples/" class="article-date">
+	  <time datetime="2020-01-07T12:21:17.000Z" itemprop="datePublished">January 7, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是B站上燕十八燕老师讲课的资料。</p>
+<p>包括建表create语句和insert增加数据的语句。</p>
+<p>供所需。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></td><td class="code"><pre><span class="line">create table goods (</span><br><span class="line">  goods_id mediumint(8) unsigned primary key auto_increment,</span><br><span class="line">  goods_name varchar(120) not null default &#39;&#39;,</span><br><span class="line">  cat_id smallint(5) unsigned not null default &#39;0&#39;,</span><br><span class="line">  brand_id smallint(5) unsigned not null default &#39;0&#39;,</span><br><span class="line">  goods_sn char(15) not null default &#39;&#39;,</span><br><span class="line">  goods_number smallint(5) unsigned not null default &#39;0&#39;,</span><br><span class="line">  shop_price decimal(10,2) unsigned not null default &#39;0.00&#39;,</span><br><span class="line">  market_price decimal(10,2) unsigned not null default &#39;0.00&#39;,</span><br><span class="line">  click_count int(10) unsigned not null default &#39;0&#39;</span><br><span class="line">) engine&#x3D;myisam default charset&#x3D;utf8;</span><br><span class="line"></span><br><span class="line">insert into &#96;goods&#96; values (1,&#39;kd876&#39;,4,8,&#39;ecs000000&#39;,1,1388.00,1665.60,9),</span><br><span class="line">(4,&#39;诺基亚n85原装充电器&#39;,8,1,&#39;ecs000004&#39;,17,58.00,69.60,0),</span><br><span class="line">(3,&#39;诺基亚原装5800耳机&#39;,8,1,&#39;ecs000002&#39;,24,68.00,81.60,3),</span><br><span class="line">(5,&#39;索爱原装m2卡读卡器&#39;,11,7,&#39;ecs000005&#39;,8,20.00,24.00,3),</span><br><span class="line">(6,&#39;胜创kingmax内存卡&#39;,11,0,&#39;ecs000006&#39;,15,42.00,50.40,0),</span><br><span class="line">(7,&#39;诺基亚n85原装立体声耳机hs-82&#39;,8,1,&#39;ecs000007&#39;,20,100.00,120.00,0),</span><br><span class="line">(8,&#39;飞利浦9@9v&#39;,3,4,&#39;ecs000008&#39;,1,399.00,478.79,10),</span><br><span class="line">(9,&#39;诺基亚e66&#39;,3,1,&#39;ecs000009&#39;,4,2298.00,2757.60,20),</span><br><span class="line">(10,&#39;索爱c702c&#39;,3,7,&#39;ecs000010&#39;,7,1328.00,1593.60,11),</span><br><span class="line">(11,&#39;索爱c702c&#39;,3,7,&#39;ecs000011&#39;,1,1300.00,0.00,0),</span><br><span class="line">(12,&#39;摩托罗拉a810&#39;,3,2,&#39;ecs000012&#39;,8,983.00,1179.60,13),</span><br><span class="line">(13,&#39;诺基亚5320 xpressmusic&#39;,3,1,&#39;ecs000013&#39;,8,1311.00,1573.20,13),</span><br><span class="line">(14,&#39;诺基亚5800xm&#39;,4,1,&#39;ecs000014&#39;,1,2625.00,3150.00,6),</span><br><span class="line">(15,&#39;摩托罗拉a810&#39;,3,2,&#39;ecs000015&#39;,3,788.00,945.60,8),</span><br><span class="line">(16,&#39;恒基伟业g101&#39;,2,11,&#39;ecs000016&#39;,0,823.33,988.00,3),</span><br><span class="line">(17,&#39;夏新n7&#39;,3,5,&#39;ecs000017&#39;,1,2300.00,2760.00,2),</span><br><span class="line">(18,&#39;夏新t5&#39;,4,5,&#39;ecs000018&#39;,1,2878.00,3453.60,0),</span><br><span class="line">(19,&#39;三星sgh-f258&#39;,3,6,&#39;ecs000019&#39;,12,858.00,1029.60,7),</span><br><span class="line">(20,&#39;三星bc01&#39;,3,6,&#39;ecs000020&#39;,12,280.00,336.00,14),</span><br><span class="line">(21,&#39;金立 a30&#39;,3,10,&#39;ecs000021&#39;,40,2000.00,2400.00,4),</span><br><span class="line">(22,&#39;多普达touch hd&#39;,3,3,&#39;ecs000022&#39;,1,5999.00,7198.80,16),</span><br><span class="line">(23,&#39;诺基亚n96&#39;,5,1,&#39;ecs000023&#39;,8,3700.00,4440.00,17),</span><br><span class="line">(24,&#39;p806&#39;,3,9,&#39;ecs000024&#39;,100,2000.00,2400.00,35),</span><br><span class="line">(25,&#39;小灵通&#x2F;固话50元充值卡&#39;,13,0,&#39;ecs000025&#39;,2,48.00,57.59,0),</span><br><span class="line">(26,&#39;小灵通&#x2F;固话20元充值卡&#39;,13,0,&#39;ecs000026&#39;,2,19.00,22.80,0),</span><br><span class="line">(27,&#39;联通100元充值卡&#39;,15,0,&#39;ecs000027&#39;,2,95.00,100.00,0),</span><br><span class="line">(28,&#39;联通50元充值卡&#39;,15,0,&#39;ecs000028&#39;,0,45.00,50.00,0),</span><br><span class="line">(29,&#39;移动100元充值卡&#39;,14,0,&#39;ecs000029&#39;,0,90.00,0.00,0),</span><br><span class="line">(30,&#39;移动20元充值卡&#39;,14,0,&#39;ecs000030&#39;,9,18.00,21.00,1),</span><br><span class="line">(31,&#39;摩托罗拉e8 &#39;,3,2,&#39;ecs000031&#39;,1,1337.00,1604.39,5),</span><br><span class="line">(32,&#39;诺基亚n85&#39;,3,1,&#39;ecs000032&#39;,4,3010.00,3612.00,9);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> create table category (</span><br><span class="line"> cat_id smallint unsigned auto_increment primary key,</span><br><span class="line"> cat_name varchar(90) not null default &#39;&#39;,</span><br><span class="line"> parent_id smallint unsigned</span><br><span class="line"> )engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO &#96;category&#96; VALUES </span><br><span class="line">(1,&#39;手机类型&#39;,0),</span><br><span class="line">(2,&#39;CDMA手机&#39;,1),</span><br><span class="line">(3,&#39;GSM手机&#39;,1),</span><br><span class="line">(4,&#39;3G手机&#39;,1),</span><br><span class="line">(5,&#39;双模手机&#39;,1),</span><br><span class="line">(6,&#39;手机配件&#39;,0),</span><br><span class="line">(7,&#39;充电器&#39;,6),</span><br><span class="line">(8,&#39;耳机&#39;,6),</span><br><span class="line">(9,&#39;电池&#39;,6),</span><br><span class="line">(11,&#39;读卡器和内存卡&#39;,6),</span><br><span class="line">(12,&#39;充值卡&#39;,0),</span><br><span class="line">(13,&#39;小灵通&#x2F;固话充值卡&#39;,12),</span><br><span class="line">(14,&#39;移动手机充值卡&#39;,12),</span><br><span class="line">(15,&#39;联通手机充值卡&#39;,12);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE &#96;result&#96; (</span><br><span class="line">  &#96;name&#96; varchar(20) DEFAULT NULL,</span><br><span class="line">  &#96;subject&#96; varchar(20) DEFAULT NULL,</span><br><span class="line">  &#96;score&#96; tinyint(4) DEFAULT NULL</span><br><span class="line">) ENGINE&#x3D;MyISAM DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">insert into result</span><br><span class="line">values</span><br><span class="line">(&#39;张三&#39;,&#39;数学&#39;,90),</span><br><span class="line">(&#39;张三&#39;,&#39;语文&#39;,50),</span><br><span class="line">(&#39;张三&#39;,&#39;地理&#39;,40),</span><br><span class="line">(&#39;李四&#39;,&#39;语文&#39;,55),</span><br><span class="line">(&#39;李四&#39;,&#39;政治&#39;,45),</span><br><span class="line">(&#39;王五&#39;,&#39;政治&#39;,30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table a (</span><br><span class="line">id char(1),</span><br><span class="line">num int</span><br><span class="line">)engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line">insert into a values (&#39;a&#39;,5),(&#39;b&#39;,10),(&#39;c&#39;,15),(&#39;d&#39;,10);</span><br><span class="line"></span><br><span class="line">create table b (</span><br><span class="line">id char(1),</span><br><span class="line">num int</span><br><span class="line">)engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line">insert into b values (&#39;b&#39;,5),(&#39;c&#39;,15),(&#39;d&#39;,20),(&#39;e&#39;,99);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> create table m(</span><br><span class="line">     mid int,</span><br><span class="line">     hid int,</span><br><span class="line">     gid int,</span><br><span class="line">     mres varchar(10),</span><br><span class="line">     matime date</span><br><span class="line">)engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line">create table t (</span><br><span class="line">     tid int,</span><br><span class="line">     tname varchar(20)</span><br><span class="line">)engine myisam charset utf8;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> insert into m</span><br><span class="line">     values</span><br><span class="line">     (1,1,2,&#39;2:0&#39;,&#39;2006-05-21&#39;),</span><br><span class="line">     (2,2,3,&#39;1:2&#39;,&#39;2006-06-21&#39;),</span><br><span class="line">     (3,3,1,&#39;2:5&#39;,&#39;2006-06-25&#39;),</span><br><span class="line">     (4,2,1,&#39;3:2&#39;,&#39;2006-07-21&#39;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> insert into t</span><br><span class="line">     values</span><br><span class="line">     (1,&#39;国安&#39;),</span><br><span class="line">     (2,&#39;申花&#39;),</span><br><span class="line">     (3,&#39;布尔联队&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table mian ( num int) engine myisam;</span><br><span class="line">insert into mian values </span><br><span class="line">(3),</span><br><span class="line">(12),</span><br><span class="line">(15),</span><br><span class="line">(25),</span><br><span class="line">(23),</span><br><span class="line">(29),</span><br><span class="line">(34),</span><br><span class="line">(37),</span><br><span class="line">(32);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table user (</span><br><span class="line">uid int primary key auto_increment,</span><br><span class="line">name varchar(20) not null default &#39;&#39;,</span><br><span class="line">age smallint unsigned not null default 0</span><br><span class="line">) engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> create table boy (</span><br><span class="line">    hid char(1),</span><br><span class="line">     bname varchar(20)</span><br><span class="line"> )engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> insert into boy (bname,hid)</span><br><span class="line">     values</span><br><span class="line">     (&#39;屌丝&#39;,&#39;A&#39;),</span><br><span class="line">     (&#39;杨过&#39;,&#39;B&#39;),</span><br><span class="line">     (&#39;陈冠希&#39;,&#39;C&#39;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> create table girl (</span><br><span class="line">    hid char(1),</span><br><span class="line">     gname varchar(20)</span><br><span class="line">     )engine myisam charset utf8;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> insert into girl(gname,hid)</span><br><span class="line">     values</span><br><span class="line">     (&#39;小龙女&#39;,&#39;B&#39;),</span><br><span class="line">     (&#39;张柏芝&#39;,&#39;C&#39;),</span><br><span class="line">     (&#39;死宅女&#39;,&#39;D&#39;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://s2.ax1x.com/2020/01/07/l6Oe5n.jpg',
+  alipayImage: 'https://s2.ax1x.com/2020/01/07/l6OnCq.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/07/mysql-06/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql_06</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 imtutu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
