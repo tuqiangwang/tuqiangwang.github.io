@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tuqiangwang.github.io/2020/01/07/mysql-04/</loc>
+    <lastmod>2020-01-08</lastmod>
+  </url>  <url>
+    <loc>https://tuqiangwang.github.io/2020/01/08/mysql-function-list/</loc>
+    <lastmod>2020-01-08</lastmod>
+  </url>  <url>
     <loc>https://tuqiangwang.github.io/2020/01/08/mysql-12/</loc>
     <lastmod>2020-01-08</lastmod>
   </url>  <url>
@@ -38,9 +44,6 @@
     <lastmod>2020-01-08</lastmod>
   </url>  <url>
     <loc>https://tuqiangwang.github.io/2020/01/07/mysql-05/</loc>
-    <lastmod>2020-01-08</lastmod>
-  </url>  <url>
-    <loc>https://tuqiangwang.github.io/2020/01/07/mysql-04/</loc>
     <lastmod>2020-01-08</lastmod>
   </url>  <url>
     <loc>https://tuqiangwang.github.io/2020/01/07/mysql-03/</loc>
