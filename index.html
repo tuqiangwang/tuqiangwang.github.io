@@ -249,16 +249,16 @@ var themeMenus = {};
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            这是B站上燕十八燕老师讲课的资料。
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-create-samples/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          这是B站上燕十八燕老师讲课的资料。
 包括建表create语句和insert增加数据的语句。
 供所需。
 
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134...
-          
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767...
 
         
           <p class="article-more-link">
@@ -311,10 +311,11 @@ var themeMenus = {};
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            子查询
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-06/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          子查询
 
 子查询指一个查询语句嵌套在另一个查询语句内部的查询。
 where型把内层查询的结果作为外层查询的比较条件
@@ -322,11 +323,7 @@ where型把内层查询的结果作为外层查询的比较条件
 1SELECT goods_id,goods_name,shop_price FROM goods ORDER BY goods_id DESC LIMIT 1;
 
 ②查询id最大的一件商品(使用where子查询实现)
-1SELECT goods_id,goods_name,shop_price FROM goods WHERE goods_id = (SELECT MAX(goods_id) FROM goods);
-
-③查询每个类别下id最大的商品(使用where子查询实现)
-1SELECT goods_id,goods...
-          
+1SELE...
 
         
           <p class="article-more-link">
@@ -379,10 +376,11 @@ where型把内层查询的结果作为外层查询的比较条件
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            继续前文，讲完剩余的几个字句：order by和limit
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-05-2/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          继续前文，讲完剩余的几个字句：order by和limit
 
 
 order by当最终结果集出来后,可以进行排序.
@@ -391,14 +389,7 @@ Order by 结果集中的列名 desc/asc
 例:order by shop_price desc ,按价格降序排列
 Order by add_time asc ,按发布时间升序排列.
 多字段排序也很容易
-Order by 列1 desc/asc , ** 列2 desc/asc  **, 列3 desc/asc
-limitLimit 在语句的最后, 起到限制条目的作用
-Lmit [offset,] N
-Offset: 偏移量,—-跳过几行
-N: 取出条目
-Offset,如果不写,则相当于  limit 0,N
-where是针对表做操作；having ...
-          
+Order by 列1 desc/asc , ** ...
 
         
           <p class="article-more-link">
@@ -451,10 +442,11 @@ where是针对表做操作；having ...
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            ​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-05/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          ​    前面学习了较为基础的增删改查，下面将搭配select中五种字句，进行更为强大的操作。
 
 
 where条件查询
@@ -465,15 +457,7 @@ where条件查询
 1Select id,name,salary from tableName
 
 查出一张表的所有列,部分行(id &gt;=2 的行)
-1Select * from tableName where id &gt;&#x3D;2;
-
-
-取出第4类和第11类的商品:
-1SELECT cat_id,goods_name,shop_price FROM goods WHERE cat_id IN (4,11);
-
- 取出不在第3类和第11类的商品:
-1SELECT g...
-          
+1Select * from...
 
         
           <p class="article-more-link">
@@ -526,16 +510,16 @@ where条件查询
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            MySQL三大列类型主要有三种：数值型、字符串型、日期。本节所列举的列类型只是代表性的，并没有完全列举出来。
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-04/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          MySQL三大列类型主要有三种：数值型、字符串型、日期。本节所列举的列类型只是代表性的，并没有完全列举出来。
 
 
 数值型　数字列类型用于储存各种数字数据，如价格、年龄或者数量。
 整型Tinyint/ smallint/ mediumint/int/ bigint(M) unsigned zerofill
-• TINYINT——一个微小的整数，支持 -128到127(SIGNED)，0到255(UNSIGNED)，需要1个字节存储• BIT——同TINYINT(1)• BOOL——同TINYINT(1)• SMALLINT——一个小整数，支持 -32768到32767(SIGNED)，0到65535(UNSIGNED)，需要2个字节存储 MEDIUMINT——一个中等整数，支持 -838...
-          
+• TINYINT——一个微小的整数，支持 -128到127(SIGNED)，0到255...
 
         
           <p class="article-more-link">
@@ -588,10 +572,11 @@ where条件查询
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            建表
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-03/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          建表
 
 在学习了简单的增删改查后，这一节对建表的过程进行讲解
 怎么建表?
@@ -620,13 +605,7 @@ where条件查询
 其实,建表过程,就是一个画表头的过程,
 从术语上讲,这张表有3个列,
 建表的过程,就是一个 声明字段 过程。
-那么建表和列类型又有什么关系呢?
-分析: 再看上面的表,A4纸是数据的存储空间,而A4的大小是有限的.
-请问:你准备给学号留多宽? 给姓名留多宽? 自我介绍又留多宽?
-自然的, 姓名如果留的过宽,比如20个字都能存,但是一般人的姓名,就三四字—浪费了.
-如果留的过窄,导致存不下,更有问题.
-对应的,A4...
-          
+那么...
 
         
           <p class="article-more-link">
@@ -679,25 +658,18 @@ where条件查询
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-02/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。
 查看表结构desc name;
 增 insert1、往哪张表添加行
 2、添加哪几列
 3、分别是什么值
 123INSERT INTO &lt;表名&gt; [ (列名1 , … ,列名n) ]  #这一行可选VALUES (值1 ,… , 值n) ;
 
-1insert into values (…,…);#插入的值和表中所有列一致
-
-如果没有声明列名,则默认插入所有列.
-因此,值应该与全部列,按顺序一一对应.
-如果声明了列（即name后），则values后面需要一一对应。
-删 delete删除指的是删除表的一整行，而不是删除某一列中的值
-1、删哪张表
-2、删哪几行  #where expres...
-          
+1insert into values (…,...
 
         
           <p class="article-more-link">
@@ -750,13 +722,12 @@ where条件查询
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            写在前面​    从该博客开始，将回顾前几个月的MySQL学习过程，由于平时科研紧张，因此只能晚上抽出几小时来学习，目前只是过了一遍SQL的基本命令，了解了一些聚合函数、join以及子查询等。那些更深、更专业的SQL知识，还待进一步学习与掌握。
-安装部分​    对于该部分，鉴于各个学习者的安装环境（windowsX、Linux）、版本的不同，本博客暂不对具体安装过程做出描述，可能会在博客撰写过程中，对该部分进行一个补充。
-概念肃清平时，熟知或者听说的数据库管理系统就不少，例如：商业:oracle, SQLserver，DB2；开源:MySQL， postgreSQL， SQLite。虽然它们的SQL语句会有出入，但是学会了一种SQL语句，其他的自然很快会上手，语言不是问题，这句话不仅...
-          
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-01/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          写在前面​    从该博客开始，将回顾前几个月的MySQL学习过程，由于平时科研紧张，因此只能晚上抽出几小时来学习，目前只是过了一遍SQL的基本命令，了解了一些聚合函数、join以及子查询等。那些更深、更专业的SQL知识，还待进一步学习与掌握。
+安装部分​    对于该部分，鉴于各个学习者的安装环境（windowsX、Linux）、版本的不同，本博客暂不对具体安装过程做出描述，可能会在博客撰...
 
         
           <p class="article-more-link">
@@ -809,10 +780,11 @@ where条件查询
     <div class="article-entry" itemprop="articleBody">
       
         
-
-          
-            <div class="entry-summary" style="margin-left:0;">
-            在学习之前，通俗的解释一下数据库相关知识。 
+          <div class="entry-thumbnail">
+            <a href="/2020/01/07/mysql-00/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          在学习之前，通俗的解释一下数据库相关知识。 
 生活中的常识: 记账.
 账:就是数据/信息,
 记账–&gt;就是储存数据/信息
@@ -821,15 +793,7 @@ where条件查询
 问上:10/12,老孙头借豆种50斤
 无论记在哪儿: 记录的都是信息, 变化的只是信息的载体.
 随着现代社会数据的急剧增多,我们用更高效的记录信息的方式.
-现在这一个班级里, 有档案表/成绩表/违纪表/就业登记表…….
-这些表,放在一个档案袋里——-档案袋是 数据库
-交给王大婶子来管理
-王大婶管理着 许多库, 我们想要数据时,找王大婶.
-王大婶子 –&gt;数据库服务器
-一台服务器下有多个库,一个库下有1到多张表, 表有多行多列的数据.
-作为WEB开发程序员, 和表的操作相对多.
-
-          
+现在这一个班级里, 有档案表/成绩表/违纪表/...
 
         
           <p class="article-more-link">
@@ -971,7 +935,10 @@ where条件查询
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/07/mysql-create-samples/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="/2020/01/07/mysql-create-samples/">mysql_create_samples</a></h6>
@@ -983,7 +950,10 @@ where条件查询
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/07/mysql-06/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="/2020/01/07/mysql-06/">mysql_06</a></h6>
@@ -995,7 +965,10 @@ where条件查询
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/07/mysql-05-2/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="/2020/01/07/mysql-05-2/">mysql_05.2</a></h6>
@@ -1007,7 +980,10 @@ where条件查询
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/07/mysql-05/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="/2020/01/07/mysql-05/">mysql_05</a></h6>
@@ -1019,7 +995,10 @@ where条件查询
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/07/mysql-04/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="/2020/01/07/mysql-04/">mysql_04</a></h6>
