@@ -20,22 +20,22 @@
   <title>mysql_09 | imtutu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="MySQL" />
+    <meta name="keywords" content="mysql" />
   
   
   
   
-  <meta name="description" content="union">
+  <meta name="description" content="union 复合查询、组合查询合并2条或多条语句的结果 要求：两次查询的列数必须一致。 语法: sql1 union sql2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql_09">
 <meta property="og:url" content="https://tuqiangwang.github.io/2020/01/08/mysql-09/index.html">
 <meta property="og:site_name" content="imtutu">
-<meta property="og:description" content="union">
+<meta property="og:description" content="union 复合查询、组合查询合并2条或多条语句的结果 要求：两次查询的列数必须一致。 语法: sql1 union sql2">
 <meta property="og:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
 <meta property="article:published_time" content="2020-01-08T03:40:27.000Z">
-<meta property="article:modified_time" content="2020-01-08T03:41:25.765Z">
+<meta property="article:modified_time" content="2020-01-08T06:39:05.746Z">
 <meta property="article:author" content="wtq">
-<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
   
@@ -205,7 +205,31 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="union"><a href="#union" class="headerlink" title="union"></a>union</h2>
+        <h2 id="union-复合查询、组合查询"><a href="#union-复合查询、组合查询" class="headerlink" title="union 复合查询、组合查询"></a>union 复合查询、组合查询</h2><p>合并2条或多条语句的结果</p>
+<p>要求：两次查询的列数必须一致。</p>
+<p>语法:</p>
+<p>sql1 union sql2</p>
+<a id="more"></a>
+
+<p>1、能否从2张表查询再union呢?</p>
+<p>答:可以,union 合并的是”结果集”,不区分在自于哪一张表.</p>
+<p>2、列的类型可以不一样，但推荐查询的每一列，想对应的类型以一样<br>3、多次sql语句取出的列名可以不一致，此时以第一个sql语句的列名为准。<br>4、如果不同的语句中取出的行，有完全相同(这里表示的是每个列的值都相同)，那么union会将相同的行合并，最终只保留一行。也可以这样理解，union会去掉重复的行。<br>5、如果不想去掉重复的行，可以使用<strong>union all</strong>。<br>6、如果子句中有order by,limit，需用括号()包起来。推荐放到所有子句之后，即对最终合并的结果来排序或筛选。</p>
+<p><strong>Sql1 union sql2 order by 字段</strong></p>
+<p><strong>注意: order by 是针对合并后的结果集排的序.</strong></p>
+<p>问: 使用order by 的注意事项</p>
+<p>如下,内层语句的desc怎么没发挥作用呢?</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200108143418.png" alt="内层进行order by"></p>
+<p><strong>因此,内层的语句的排序,就没有意义.</strong></p>
+<p>因此:内层的order by 语句单独使用,不会影响结果集,仅排序,</p>
+<p>在执行期间,就被Mysql的代码分析器给优化掉了.</p>
+<p><strong>内层的order by 必须能够影响结果集时,才有意义.</strong></p>
+<p><strong>比如 配合limit 使用. 如下例.</strong></p>
+<p>思考下个问题:</p>
+<p>查出: 第3个栏目下,价格前3高的商品,和第4个栏目下,价格前2高的商品.</p>
+<p>用union来完成</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200108143629.png" alt="内层order by配合limit"></p>
+<p>这一次:内层的order by 发挥了作用,因为有limit ,order 会实际影响结果集,有意义.</p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -279,7 +303,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#union"><span class="nav-number">1.</span> <span class="nav-text">union</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#union-复合查询、组合查询"><span class="nav-number">1.</span> <span class="nav-text">union 复合查询、组合查询</span></a></li></ol>
     
     </div>
   </aside>
