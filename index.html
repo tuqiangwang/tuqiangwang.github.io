@@ -230,194 +230,27 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本节基于上一节的概念，将对内连接、左连接、右连接、全外连接进行介绍。</p>
-<h2 id="左连接-left-join"><a href="#左连接-left-join" class="headerlink" title="左连接 left join"></a>左连接 left join</h2><p>假设A表在左,不动,B表在A表的右边滑动.</p>
-<p>A表与B表通过一个关系来筛选B表的行.</p>
-<p>定义：在内连接（交集）的基础上，还包含左表中所有不符合条件的数据行，并在其中的右表列填写NULL</p>
-<p><strong>语法:</strong></p>
-<p>A left join B on 条件  条件为真,则B表对应的行,取出</p>
-<hr>
-<p><strong>A left join B on 条件</strong> </p>
-<p>这一块,形成的也是一个结果集,可以看成一张表 设为C</p>
-<p>既如此,可以对C表作查询,自然where,group ,having ,order by ,limit 照常使用</p>
-<p><strong>问:C表的可以查询的列有哪些列?</strong></p>
-<p>答: A B的列都可以查</p>
-<h2 id="右连接-right-join"><a href="#右连接-right-join" class="headerlink" title="右连接 right join"></a>右连接 right join</h2><p>A right join B 等价于 B right join A</p>
-<p>左右连接是可以互换的</p>
-<p>注意：既然左右连接可以互换，尽量用左连接，出于移植时兼容性方面的考虑．</p>
-<h2 id="内连接-inner-join"><a href="#内连接-inner-join" class="headerlink" title="内连接 inner join"></a>内连接 inner join</h2><p>从集合的角度</p>
-<p>A inner join B    和　left join /right　join的关系</p>
-<p>定义：仅将两个表中满足连接条件的行组合起来作为结果集。 </p>
-<p><strong>答：内连接是左右连接的交集</strong></p>
-<h2 id="全外连接-full-join"><a href="#全外连接-full-join" class="headerlink" title="全外连接 full join"></a>全外连接 full join</h2><p>结果是左右连接的并集，没有值的写NULL</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>同学见面会:</p>
-<p>男生表</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>配偶</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>屌丝</td>
-<td>A</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>B</td>
-</tr>
-<tr>
-<td>王五</td>
-<td>C</td>
-</tr>
-<tr>
-<td>高富帅</td>
-<td>D</td>
-</tr>
-<tr>
-<td>郑七</td>
-<td>E</td>
-</tr>
-</tbody></table>
-<p>女生表</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>配偶</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>空姐</td>
-<td>B</td>
-</tr>
-<tr>
-<td>大S</td>
-<td>C</td>
-</tr>
-<tr>
-<td>阿娇</td>
-<td>D</td>
-</tr>
-<tr>
-<td>张柏芝</td>
-<td>D</td>
-</tr>
-<tr>
-<td>林黛玉</td>
-<td>E</td>
-</tr>
-<tr>
-<td>宝钗</td>
-<td>F</td>
-</tr>
-</tbody></table>
-<p>主持人大声说:</p>
-<p>所有的男士,站到舞台上,带上自己的配偶,(没有的拿块牌子, 上写NULL)</p>
-<p>思考:张三上不上舞台呢?</p>
-<p>答:上</p>
-<p>问:张三没有对应的行怎么办?</p>
-<p>答:用NULL补齐</p>
-<p>结果如下</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>配偶</th>
-<th>女生姓名</th>
-<th>配偶</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>屌丝</td>
-<td>A</td>
-<td>NULL</td>
-<td>NULL</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>B</td>
-<td>空姐</td>
-<td>B</td>
-</tr>
-<tr>
-<td>王五</td>
-<td>C</td>
-<td>大S</td>
-<td>C</td>
-</tr>
-<tr>
-<td>高富帅</td>
-<td>D</td>
-<td>阿娇</td>
-<td>D</td>
-</tr>
-<tr>
-<td>高富帅</td>
-<td>D</td>
-<td>张柏芝</td>
-<td>D</td>
-</tr>
-<tr>
-<td>郑七</td>
-<td>E</td>
-<td>林黛玉</td>
-<td>E</td>
-</tr>
-</tbody></table>
-<p>这种情况就是  男生  left join 女生。</p>
-<p>右连接，不赘述</p>
-<p><strong>内连接的特点</strong></p>
-<p>主持人说：　所有有配偶的男生／女生，走到舞台上来</p>
-<p>这种情况下：　屌丝和宝钗都出局</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>配偶</th>
-<th>女生姓名</th>
-<th>配偶</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>李四</td>
-<td>B</td>
-<td>空姐</td>
-<td>B</td>
-</tr>
-<tr>
-<td>王五</td>
-<td>C</td>
-<td>大S</td>
-<td>C</td>
-</tr>
-<tr>
-<td>高富帅</td>
-<td>D</td>
-<td>阿娇</td>
-<td>D</td>
-</tr>
-<tr>
-<td>高富帅</td>
-<td>D</td>
-<td>张柏芝</td>
-<td>D</td>
-</tr>
-<tr>
-<td>郑七</td>
-<td>E</td>
-<td>林黛玉</td>
-<td>E</td>
-</tr>
-</tbody></table>
-<p>问题：</p>
-<p>主持人说：所有男生／女生，走上舞台．</p>
-<p>有配偶的，带着配偶；</p>
-<p>没配偶的，拿牌子写ＮＵＬＬ</p>
-<p>即：结果是左右连接的并集</p>
-<p><strong>这种叫做外连接，但是，在mysql中不支持外连接</strong></p>
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/01/08/mysql-08/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          本节基于上一节的概念，将对内连接、左连接、右连接、全外连接进行介绍。
 
+
+左连接 left join假设A表在左,不动,B表在A表的右边滑动.
+A表与B表通过一个关系来筛选B表的行.
+定义：在内连接（交集）的基础上，还包含左表中所有不符合条件的数据行，并在其中的右表列填写NULL
+语法:
+A left join B on 条件  条件为真,则B表对应的行,取出
+
+A left join B ...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/01/08/mysql-08/#more">Continue Reading →</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
