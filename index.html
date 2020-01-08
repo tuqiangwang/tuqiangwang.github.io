@@ -162,6 +162,130 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-mysql-conv-inst"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/01/08/mysql-conv-inst/">mysql_conv_inst</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/01/08/mysql-conv-inst/" class="article-date">
+	  <time datetime="2020-01-08T07:39:28.000Z" itemprop="datePublished">January 8, 2020</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这一篇的定位是将mysql中一些频率不高的指令进行汇总，将会持续更新。</p>
+<p><strong>查看本机存放数据库的数据位置：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global variables like &quot;%datadir%&quot;;</span><br></pre></td></tr></table></figure>
+<p><strong>如何连接服务器</strong>:<br><strong>服务器地址( 可用IP,域名) : 端口(3306)    用户名    密码</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mysql -h localhost -uUserName -pPassWd</span><br><span class="line">  -h 如果不写,则默认连localhost</span><br></pre></td></tr></table></figure>
+
+<p><strong>展示表、视图的结构</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table 表名或视图名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">解决字符集问题:</span><br><span class="line">默认建表一般用utf8, 而我们在windows下窗口是GBK的,</span><br><span class="line">因此,需要声明字符集.</span><br><span class="line">Set names gbk;</span><br><span class="line"></span><br><span class="line">发现的1小问题 </span><br><span class="line">语句打错以后应该退出本语句,再继续打新语句.也可以打\c,退出本语句.</span><br><span class="line"></span><br><span class="line">如何破解数据库的密码:</span><br><span class="line">1:通过任务管理器或者服务管理,关掉mysqld(服务进程)</span><br><span class="line">2:通过命令行+特殊参数开启mysqld</span><br><span class="line">Mysqld --skip-grant-tables</span><br><span class="line">3:此时,mysqld服务进程已经打开,并且,不需要权限检查.</span><br><span class="line">4:mysql -uroot  无密码登陆服务器.</span><br><span class="line">5: 修改权限表</span><br><span class="line">  A: use mysql;</span><br><span class="line">  B:update user set Password &#x3D; password(&#39;11111&#39;) where User &#x3D; &#39;root&#39;;</span><br><span class="line">  C:flush privileges;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-mysql-10-2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/01/08/mysql-10-2/">mysql_10-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/01/08/mysql-10-2/" class="article-date">
+	  <time datetime="2020-01-08T07:36:25.000Z" itemprop="datePublished">January 8, 2020</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这一篇是mysql-10的续篇。考虑到若将两节合并，篇幅会将长，本着简短精炼的初衷，故将其一分为二。</p>
+<h3 id="视图的algorithm"><a href="#视图的algorithm" class="headerlink" title="视图的algorithm"></a>视图的algorithm</h3><p>上节提到，创建视图中，有一个可选的参数：algorithm。</p>
+<p><strong>Algorithm = merge/ temptable/ undefined</strong></p>
+<p>Merge: 当引用视图时,引用视图的语句与定义视图的语句合并.</p>
+<p>Temptable:当引用视图时,根据视图的创建语句建立一个临时表</p>
+<p>Undefined:未定义,自动,让系统帮你选.</p>
+<p><strong>我们定义视图v1，此时v1就相当于一个临时表。临时表的查找比较慢，我们想要有视图，又不想建临时表，应该怎么办呢？</strong></p>
+<p>Merge,意味着视图只是一个规则,语句规则, 当查询视图时,</p>
+<p>把查询视图的语句(比如where那些)与创建时的语句where子句等<strong>合并</strong>,分析，形成一条select 语句.</p>
+<p>例: 创建视图的语句:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create algorithm&#x3D;merge view g2 as select goods_id,cat_id,goods_name,shop_price from goods where shop_price&gt;2000</span><br><span class="line">#查询视图的语句:</span><br><span class="line">select * from g2  where shop_price &lt; 3000;</span><br></pre></td></tr></table></figure>
+
+<p>等价于：最终执行的语句:</p>
+<p>select goods_id,cat_id,goods_name,shop_price from goods where shop_price &gt; 2000 and shop_price &lt; 3000</p>
+<p><strong>而temptable是根据创建语句瞬间创建一张临时表,</strong></p>
+<p><strong>然后查询视图的语句从该临时表查数据.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create algorethm&#x3D;temptable view g2 as select goods_id,cat_id,goods_name,shop_price from goods where shop_price &gt; 2000</span><br><span class="line">#查询视图的语句:</span><br><span class="line">select * from g2  where shop_price &lt; 3000;</span><br></pre></td></tr></table></figure>
+
+<p>等价于：最终执行的2句话: 取数据并放在临时表,然后去查临时表.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temptable &#x3D; select  goods_id,cat_id,goods_name,shop_price from goods where shop_price &gt; 2000;</span><br><span class="line">#再次查临时表</span><br><span class="line">Select * from temptable where shop_price&lt; 3000</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-mysql-10"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -683,154 +807,6 @@ where条件查询
     
 
   
-    <article id="post-mysql-04"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/01/07/mysql-04/">mysql_04</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2020/01/07/mysql-04/" class="article-date">
-	  <time datetime="2020-01-07T06:28:55.000Z" itemprop="datePublished">January 7, 2020</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2020/01/07/mysql-04/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          MySQL三大列类型主要有三种：数值型、字符串型、日期。本节所列举的列类型只是代表性的，并没有完全列举出来。
-
-
-数值型　数字列类型用于储存各种数字数据，如价格、年龄或者数量。
-整型Tinyint/ smallint/ mediumint/int/ bigint(M) unsigned zerofill
-• TINYINT——一个微小的整数，支持 -128到127(SIGNED)，0到255...
-
-        
-          <p class="article-more-link">
-            <a href="/2020/01/07/mysql-04/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-    
-
-  
-    <article id="post-mysql-03"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/01/07/mysql-03/">mysql_03</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2020/01/07/mysql-03/" class="article-date">
-	  <time datetime="2020-01-07T06:06:23.000Z" itemprop="datePublished">January 7, 2020</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2020/01/07/mysql-03/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          建表
-
-在学习了简单的增删改查后，这一节对建表的过程进行讲解
-怎么建表?
-以在A4纸上建表为例,
-
-
-
-学号
-姓名
-家乡
-
-
-
-001
-张三
-衡水
-
-
-
-
-
-
-
-分析:我们只要把第一行,表头建好了,这张表也就完成了.
-至于下面的001,张三,这不是表的概念,而是表中储存的数据.
-其实,建表过程,就是一个画表头的过程,
-从术语上讲,这张表有3个列,
-建表的过程,就是一个 声明字段 过程。
-那么...
-
-        
-          <p class="article-more-link">
-            <a href="/2020/01/07/mysql-03/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-    
-
-  
 
 
   <nav id="page-nav">
@@ -931,6 +907,36 @@ where条件查询
 
             
               <div class="widget-entry-thumbnail">
+                <a href="/2020/01/08/mysql-conv-inst/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/01/08/mysql-conv-inst/">mysql_conv_inst</a></h6>
+              <span>January 8, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-thumbnail">
+                <a href="/2020/01/08/mysql-10-2/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/01/08/mysql-10-2/">mysql_10-2</a></h6>
+              <span>January 8, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-thumbnail">
                 <a href="/2020/01/08/mysql-10/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
@@ -987,36 +993,6 @@ where条件查询
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-thumbnail">
-                <a href="/2020/01/07/mysql-create-samples/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
-              </div>
-              <div class="widget-entry-summary">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/01/07/mysql-create-samples/">mysql_create_samples</a></h6>
-              <span>January 7, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-thumbnail">
-                <a href="/2020/01/07/mysql-06/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
-              </div>
-              <div class="widget-entry-summary">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/01/07/mysql-06/">mysql_06</a></h6>
-              <span>January 7, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1029,7 +1005,7 @@ where条件查询
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">13</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">15</span></li></ul>
     </div>
   </div>
 
@@ -1049,7 +1025,7 @@ where条件查询
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
