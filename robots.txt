@@ -6,3 +6,6 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /vendors/
 Disallow: /fancybox/
+
+Sitemap: https://tuqiangwang.github.io/sitemap.xml
+Sitemap: https://tuqiangwang.github.io/baidusitemap.xml
