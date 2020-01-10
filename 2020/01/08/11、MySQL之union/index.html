@@ -17,24 +17,27 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>记 | imtutu</title>
+  <title>11、mysql之union | imtutu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="MySQL,秋招,求职,自我提升,技术分享" />
+    <meta name="keywords" content="mysql" />
   
   
   
   
-  <meta name="description" content="天上的云，聚了又散，人生离合，亦复如斯">
+  <meta name="description" content="union 复合查询、组合查询合并2条或多条语句的结果 要求：两次查询的列数必须一致。 语法: sql1 union sql2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记">
-<meta property="og:url" content="https://tuqiangwang.github.io/2020/01/06/%E8%AE%B0/index.html">
+<meta property="og:title" content="11、MySQL之union">
+<meta property="og:url" content="https://tuqiangwang.github.io/2020/01/08/11%E3%80%81MySQL%E4%B9%8Bunion/index.html">
 <meta property="og:site_name" content="imtutu">
-<meta property="og:description" content="天上的云，聚了又散，人生离合，亦复如斯">
-<meta property="article:published_time" content="2020-01-06T02:32:53.000Z">
-<meta property="article:modified_time" content="2020-01-09T02:54:07.565Z">
+<meta property="og:description" content="union 复合查询、组合查询合并2条或多条语句的结果 要求：两次查询的列数必须一致。 语法: sql1 union sql2">
+<meta property="og:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
+<meta property="article:published_time" content="2020-01-08T03:40:27.000Z">
+<meta property="article:modified_time" content="2020-01-10T07:35:34.479Z">
 <meta property="article:author" content="wtq">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
   
     <link rel="alternate" href="/atom.xml" title="imtutu" type="application/atom+xml">
   
@@ -164,15 +167,25 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-记" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-11、MySQL之union" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" target="_blank" rel="gallery_ck57umjkl00011gpw95n4dunc noopener">
+        <img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
     
       <header class="article-header">
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      记
+      11、MySQL之union
     </h1>
   
 
@@ -180,8 +193,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/01/06/%E8%AE%B0/" class="article-date">
-	  <time datetime="2020-01-06T02:32:53.000Z" itemprop="datePublished">January 6, 2020</time>
+	Posted on <a href="/2020/01/08/11%E3%80%81MySQL%E4%B9%8Bunion/" class="article-date">
+	  <time datetime="2020-01-08T03:40:27.000Z" itemprop="datePublished">January 8, 2020</time>
 	</a>
 
       
@@ -192,15 +205,39 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <center font size=300 >
-天上的云，聚了又散，人生离合，亦复如斯 
-</center>
+        <h2 id="union-复合查询、组合查询"><a href="#union-复合查询、组合查询" class="headerlink" title="union 复合查询、组合查询"></a>union 复合查询、组合查询</h2><p>合并2条或多条语句的结果</p>
+<p>要求：两次查询的列数必须一致。</p>
+<p>语法:</p>
+<p>sql1 union sql2</p>
+<a id="more"></a>
+
+<p>1、能否从2张表查询再union呢?</p>
+<p>答:可以,union 合并的是”结果集”,不区分在自于哪一张表.</p>
+<p>2、列的类型可以不一样，但推荐查询的每一列，想对应的类型以一样<br>3、多次sql语句取出的列名可以不一致，此时以第一个sql语句的列名为准。<br>4、如果不同的语句中取出的行，有完全相同(这里表示的是每个列的值都相同)，那么union会将相同的行合并，最终只保留一行。也可以这样理解，union会去掉重复的行。<br>5、如果不想去掉重复的行，可以使用<strong>union all</strong>。<br>6、如果子句中有order by,limit，需用括号()包起来。推荐放到所有子句之后，即对最终合并的结果来排序或筛选。</p>
+<p><strong>Sql1 union sql2 order by 字段</strong></p>
+<p><strong>注意: order by 是针对合并后的结果集排的序.</strong></p>
+<p>问: 使用order by 的注意事项</p>
+<p>如下,内层语句的desc怎么没发挥作用呢?</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200108143418.png" alt="内层进行order by"></p>
+<p><strong>因此,内层的语句的排序,就没有意义.</strong></p>
+<p>因此:内层的order by 语句单独使用,不会影响结果集,仅排序,</p>
+<p>在执行期间,就被Mysql的代码分析器给优化掉了.</p>
+<p><strong>内层的order by 必须能够影响结果集时,才有意义.</strong></p>
+<p><strong>比如 配合limit 使用. 如下例.</strong></p>
+<p>思考下个问题:</p>
+<p>查出: 第3个栏目下,价格前3高的商品,和第4个栏目下,价格前2高的商品.</p>
+<p>用union来完成</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200108143629.png" alt="内层order by配合limit"></p>
+<p>这一次:内层的order by 发挥了作用,因为有limit ,order 会实际影响结果集,有意义.</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
       
         <div id="donation_div"></div>
 
@@ -249,15 +286,20 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/01/07/1%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E5%BF%B5%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/08/12%E3%80%81MySQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%A7%86%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          1、数据库概念通俗解释
+          12、MySQL学习之视图
         
       </div>
     </a>
   
+  
+    <a href="/2020/01/08/10%E3%80%81MySQL%E4%B9%8B%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B7%A6%E3%80%81%E5%8F%B3%E3%80%81%E5%86%85%E8%BF%9E%E6%8E%A5%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">10、MySQL之连接查询（左、右、内连接）</div>
+    </a>
   
 </nav>
 
@@ -270,7 +312,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav">None</ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#union-复合查询、组合查询"><span class="nav-number">1.</span> <span class="nav-text">union 复合查询、组合查询</span></a></li></ol>
     
     </div>
   </aside>

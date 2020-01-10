@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>18、mysql中的常用函数汇总 | imtutu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MySQL,秋招,求职,自我提升,技术分享" />
+  
+  
+  
+  
+  <meta name="description" content="这一节列举了mysql中的函数。可做字典用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18、MySQL中的常用函数汇总">
+<meta property="og:url" content="https://tuqiangwang.github.io/2020/01/08/18%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="imtutu">
+<meta property="og:description" content="这一节列举了mysql中的函数。可做字典用。">
+<meta property="og:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
+<meta property="article:published_time" content="2020-01-08T09:15:52.000Z">
+<meta property="article:modified_time" content="2020-01-10T07:37:47.181Z">
+<meta property="article:author" content="wtq">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
+  
+    <link rel="alternate" href="/atom.xml" title="imtutu" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/head.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="imtutu" rel="home"> imtutu </a>
+            
+          </h1>
+
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-18、MySQL中的常用函数汇总" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" target="_blank" rel="gallery_ck57umjlo000f1gpwczva98ji noopener">
+        <img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      18、MySQL中的常用函数汇总
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/01/08/18%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/" class="article-date">
+	  <time datetime="2020-01-08T09:15:52.000Z" itemprop="datePublished">January 8, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这一节列举了mysql中的函数。可做字典用。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>一、数学函数<br>abs(x)   返回x的绝对值<br>bin(x)   返回x的二进制（oct返回八进制，hex返回十六进制）<br>ceiling(x)   返回大于x的最小整数值<br>exp(x)   返回值e（自然对数的底）的x次方<br>floor(x)   返回小于x的最大整数值<br>greatest(x1,x2,…,xn)返回集合中最大的值<br>least(x1,x2,…,xn)      返回集合中最小的值<br>ln(x)                    返回x的自然对数<br>log(x,y)返回x的以y为底的对数<br>mod(x,y)                 返回x/y的模（余数）<br>pi()返回pi的值（圆周率）<br>rand()返回０到１内的随机值,可以通过提供一个参数(种子)使rand()随机数生成器生成一个指定的值。<br>round(x,y)返回参数x的四舍五入的有y位小数的值<br>sign(x) 返回代表数字x的符号的值<br>sqrt(x) 返回一个数的平方根<br>truncate(x,y)            返回数字x截短为y位小数的结果</p>
+<p>二、聚合函数(常用于group by从句的select查询中)<br>avg(col)返回指定列的平均值<br>count(col)返回指定列中非null值的个数<br>min(col)返回指定列的最小值<br>max(col)返回指定列的最大值<br>sum(col)返回指定列的所有值之和<br>group_concat(col) 返回由属于一组的列值连接组合而成的结果</p>
+<p>三、字符串函数<br>ascii(char)返回字符的ascii码值<br>bit_length(str)返回字符串的比特长度<br>concat(s1,s2…,sn)将s1,s2…,sn连接成字符串<br>concat_ws(sep,s1,s2…,sn)将s1,s2…,sn连接成字符串，并用sep字符间隔<br>insert(str,x,y,instr) 将字符串str从第x位置开始，y个字符长的子串替换为字符串instr，返回结果<br>find_in_set(str,list)分析逗号分隔的list列表，如果发现str，返回str在list中的位置<br>lcase(str)或lower(str) 返回将字符串str中所有字符改变为小写后的结果<br>left(str,x)返回字符串str中最左边的x个字符<br>length(s)返回字符串str中的字符数<br>ltrim(str) 从字符串str中切掉开头的空格<br>position(substr,str) 返回子串substr在字符串str中第一次出现的位置<br>quote(str) 用反斜杠转义str中的单引号<br>repeat(str,srchstr,rplcstr)返回字符串str重复x次的结果<br>reverse(str) 返回颠倒字符串str的结果<br>right(str,x) 返回字符串str中最右边的x个字符<br>rtrim(str) 返回字符串str尾部的空格<br>strcmp(s1,s2)比较字符串s1和s2<br>trim(str)去除字符串首部和尾部的所有空格<br>ucase(str)或upper(str) 返回将字符串str中所有字符转变为大写后的结果</p>
+<p>四、日期和时间函数<br>curdate()或current_date() 返回当前的日期<br>curtime()或current_time() 返回当前的时间<br>date_add(date,interval int keyword)返回日期date加上间隔时间int的结果(int必须按照关键字进行格式化),如：selectdate_add(current_date,interval 6 month);<br>date_format(date,fmt)  依照指定的fmt格式格式化日期date值<br>date_sub(date,interval int keyword)返回日期date加上间隔时间int的结果(int必须按照关键字进行格式化),如：selectdate_sub(current_date,interval 6 month);<br>dayofweek(date)   返回date所代表的一星期中的第几天(1-7)<br>dayofmonth(date)  返回date是一个月的第几天(1-31)<br>dayofyear(date)   返回date是一年的第几天(1-366)<br>dayname(date)   返回date的星期名，如：select dayname(current_date);<br>from_unixtime(ts,fmt)  根据指定的fmt格式，格式化unix时间戳ts<br>hour(time)   返回time的小时值(0-23)<br>minute(time)   返回time的分钟值(0-59)<br>month(date)   返回date的月份值(1-12)<br>monthname(date)   返回date的月份名，如：select monthname(current_date);<br>now()    返回当前的日期和时间<br>quarter(date)   返回date在一年中的季度(1-4)，如select quarter(current_date);<br>week(date)   返回日期date为一年中第几周(0-53)<br>year(date)   返回日期date的年份(1000-9999)<br>一些示例：<br>获取当前系统时间：select from_unixtime(unix_timestamp());<br>select extract(year_month from current_date);<br>select extract(day_second from current_date);<br>select extract(hour_minute from current_date);<br>返回两个日期值之间的差值(月数)：select period_diff(200302,199802);<br>在mysql中计算年龄：<br>select date_format(from_days(to_days(now())-to_days(birthday)),’%y’)+0 as age from employee;<br>这样，如果brithday是未来的年月日的话，计算结果为0。<br>下面的sql语句计算员工的绝对年龄，即当birthday是未来的日期时，将得到负值。<br>select date_format(now(), ‘%y’) - date_format(birthday, ‘%y’) -(date_format(now(), ‘00-%m-%d’) &lt;date_format(birthday, ‘00-%m-%d’)) as age from employee</p>
+<p>五、加密函数<br>aes_encrypt(str,key)  返回用密钥key对字符串str利用高级加密标准算法加密后的结果，调用aes_encrypt的结果是一个二进制字符串，以blob类型存储<br>aes_decrypt(str,key)  返回用密钥key对字符串str利用高级加密标准算法解密后的结果<br>decode(str,key)   使用key作为密钥解密加密字符串str<br>encrypt(str,salt)   使用unixcrypt()函数，用关键词salt(一个可以惟一确定口令的字符串，就像钥匙一样)加密字符串str<br>encode(str,key)   使用key作为密钥加密字符串str，调用encode()的结果是一个二进制字符串，它以blob类型存储<br>md5()    计算字符串str的md5校验和<br>password(str)   返回字符串str的加密版本，这个加密过程是不可逆转的，和unix密码加密过程使用不同的算法。<br>sha()    计算字符串str的安全散列算法(sha)校验和<br>示例：<br>select encrypt(‘root’,’salt’);<br>select encode(‘xufeng’,’key’);<br>select decode(encode(‘xufeng’,’key’),’key’);#加解密放在一起<br>select aes_encrypt(‘root’,’key’);<br>select aes_decrypt(aes_encrypt(‘root’,’key’),’key’);<br>select md5(‘123456’);<br>select sha(‘123456’);</p>
+<p>六、控制流函数<br>mysql有4个函数是用来进行条件操作的，这些函数可以实现sql的条件逻辑，允许开发者将一些应用程序业务逻辑转换到数据库后台。<br>mysql控制流函数：<br>case when[test1] then [result1]…else [default] end如果testn是真，则返回resultn，否则返回default<br>case [test] when[val1] then [result]…else [default]end  如果test和valn相等，则返回resultn，否则返回default<br>if(test,t,f)   如果test是真，返回t；否则返回f<br>ifnull(arg1,arg2) 如果arg1不是空，返回arg1，否则返回arg2<br>nullif(arg1,arg2) 如果arg1=arg2返回null；否则返回arg1<br>这些函数的第一个是ifnull()，它有两个参数，并且对第一个参数进行判断。如果第一个参数不是null，函数就会向调用者返回第一个参数；如果是null,将返回第二个参数。<br>如：select ifnull(1,2), ifnull(null,10),ifnull(4*null,’false’);<br>nullif()函数将会检验提供的两个参数是否相等，如果相等，则返回null，如果不相等，就返回第一个参数。<br>如：select nullif(1,1),nullif(‘a’,’b’),nullif(2+3,4+1);<br>和许多脚本语言提供的if()函数一样，mysql的if()函数也可以建立一个简单的条件测试，这个函数有三个参数，第一个是要被判断的表达式，如果表达式为真，if()将会返回第二个参数，如果为假，if()将会返回第三个参数。<br>如：selectif(1&lt;10,2,3),if(56&gt;100,’true’,’false’);<br>if()函数在只有两种可能结果时才适合使用。然而，在现实世界中，我们可能发现在条件测试中会需要多个分支。在这种情况下，mysql提供了case函数，它和php及perl语言的switch-case条件例程一样。<br>case函数的格式有些复杂，通常如下所示：<br>case [expression to be evaluated]<br>when [val 1] then [result 1]<br>when [val 2] then [result 2]<br>when [val 3] then [result 3]<br>……<br>when [val n] then [result n]<br>else [default result]<br>end<br>这里，第一个参数是要被判断的值或表达式，接下来的是一系列的when-then块，每一块的第一个参数指定要比较的值，如果为真，就返回结果。所有的when-then块将以else块结束，当end结束了所有外部的case块时，如果前面的每一个块都不匹配就会返回else块指定的默认结果。如果没有指定else块，而且所有的when-then比较都不是真，mysql将会返回null。<br>case函数还有另外一种句法，有时使用起来非常方便，如下：<br>case<br>when [conditional test 1] then [result 1]<br>when [conditional test 2] then [result 2]<br>else [default result]<br>end<br>这种条件下，返回的结果取决于相应的条件测试是否为真。<br>示例：<br>mysql&gt;select case ‘green’<br>     when ‘red’ then ‘stop’<br>     when ‘green’ then ‘go’ end;<br>select case 9 when 1 then ‘a’ when 2 then ‘b’ else ‘n/a’ end;<br>select case when (2+2)=4 then ‘ok’ when(2+2)&lt;&gt;4 then ‘not ok’ end asstatus;<br>select name,if((isactive = 1),’已激活’,’未激活’) as result fromuserlogininfo;<br>select fname,lname,(math+sci+lit) as total,<br>case when (math+sci+lit) &lt; 50 then ‘d’<br>when (math+sci+lit) between 50 and 150 then ‘c’<br>when (math+sci+lit) between 151 and 250 then ‘b’<br>else ‘a’ end<br>as grade from marks;<br>select if(encrypt(‘sue’,’ts’)=upass,’allow’,’deny’) as loginresultfrom users where uname = ‘sue’;#一个登陆验证</p>
+<p>七、格式化函数<br>date_format(date,fmt)  依照字符串fmt格式化日期date值<br>format(x,y)   把x格式化为以逗号隔开的数字序列，y是结果的小数位数<br>inet_aton(ip)   返回ip地址的数字表示<br>inet_ntoa(num)   返回数字所代表的ip地址<br>time_format(time,fmt)  依照字符串fmt格式化时间time值<br>其中最简单的是format()函数，它可以把大的数值格式化为以逗号间隔的易读的序列。<br>示例：<br>select format(34234.34323432,3);<br>select date_format(now(),’%w,%d %m %y %r’);<br>select date_format(now(),’%y-%m-%d’);<br>select date_format(19990330,’%y-%m-%d’);<br>select date_format(now(),’%h:%i %p’);<br>select inet_aton(‘10.122.89.47’);<br>select inet_ntoa(175790383);</p>
+<p>八、类型转化函数<br>为了进行数据类型转化，mysql提供了cast()函数，它可以把一个值转化为指定的数据类型。类型有：binary,char,date,time,datetime,signed,unsigned<br>示例：<br>select cast(now() as signed integer),curdate()+0;<br>select ‘f’=binary ‘f’,’f’=cast(‘f’ as binary);</p>
+<p>九、系统信息函数<br>database()   返回当前数据库名<br>benchmark(count,expr)  将表达式expr重复运行count次<br>connection_id()   返回当前客户的连接id<br>found_rows()   返回最后一个select查询进行检索的总行数<br>user()或system_user()  返回当前登陆用户名<br>version()   返回mysql服务器的版本<br>示例：<br>select database(),version(),user();<br>selectbenchmark(9999999,log(rand()<em>pi()));#该例中,mysql计算log(rand()</em>pi())表达式9999999次。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://s2.ax1x.com/2020/01/07/l6Oe5n.jpg',
+  alipayImage: 'https://s2.ax1x.com/2020/01/07/l6OnCq.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/09/postgrad-years/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          postgrad_years
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/08/15%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">15、MySQL中的存储引擎</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 imtutu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

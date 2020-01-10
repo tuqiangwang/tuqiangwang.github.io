@@ -17,7 +17,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>记 | imtutu</title>
+  <title>3、mysql基本操作之增删改查 | imtutu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MySQL,秋招,求职,自我提升,技术分享" />
@@ -25,16 +25,19 @@
   
   
   
-  <meta name="description" content="天上的云，聚了又散，人生离合，亦复如斯">
+  <meta name="description" content="本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记">
-<meta property="og:url" content="https://tuqiangwang.github.io/2020/01/06/%E8%AE%B0/index.html">
+<meta property="og:title" content="3、MySQL基本操作之增删改查">
+<meta property="og:url" content="https://tuqiangwang.github.io/2020/01/07/3%E3%80%81MySQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/index.html">
 <meta property="og:site_name" content="imtutu">
-<meta property="og:description" content="天上的云，聚了又散，人生离合，亦复如斯">
-<meta property="article:published_time" content="2020-01-06T02:32:53.000Z">
-<meta property="article:modified_time" content="2020-01-09T02:54:07.565Z">
+<meta property="og:description" content="本节讲解MySQL中的增删改查在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。">
+<meta property="og:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
+<meta property="article:published_time" content="2020-01-07T03:35:59.000Z">
+<meta property="article:modified_time" content="2020-01-10T07:13:02.476Z">
 <meta property="article:author" content="wtq">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png">
   
     <link rel="alternate" href="/atom.xml" title="imtutu" type="application/atom+xml">
   
@@ -164,15 +167,25 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-记" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-3、MySQL基本操作之增删改查" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" target="_blank" rel="gallery_ck57umjm0000l1gpweuufgyr1 noopener">
+        <img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
     
       <header class="article-header">
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      记
+      3、MySQL基本操作之增删改查
     </h1>
   
 
@@ -180,8 +193,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/01/06/%E8%AE%B0/" class="article-date">
-	  <time datetime="2020-01-06T02:32:53.000Z" itemprop="datePublished">January 6, 2020</time>
+	Posted on <a href="/2020/01/07/3%E3%80%81MySQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" class="article-date">
+	  <time datetime="2020-01-07T03:35:59.000Z" itemprop="datePublished">January 7, 2020</time>
 	</a>
 
       
@@ -192,15 +205,48 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <center font size=300 >
-天上的云，聚了又散，人生离合，亦复如斯 
-</center>
+        <h3 id="本节讲解MySQL中的增删改查"><a href="#本节讲解MySQL中的增删改查" class="headerlink" title="本节讲解MySQL中的增删改查"></a>本节讲解MySQL中的增删改查</h3><p>在四大基本操作前，需要创建表，如何创建表的知识，放到后一节讲解。<a id="more"></a></p>
+<h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><p>desc name;</p>
+<h3 id="增-insert"><a href="#增-insert" class="headerlink" title="增 insert"></a>增 insert</h3><p>1、往哪张表添加行</p>
+<p>2、添加哪几列</p>
+<p>3、分别是什么值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> &lt;表名&gt; </span><br><span class="line">[ (列名<span class="number">1</span> , … ,列名n) ]  <span class="comment">#这一行可选</span></span><br><span class="line"><span class="keyword">VALUES</span> (值<span class="number">1</span> ,… , 值n) ;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into values (…,…);#插入的值和表中所有列一致</span><br></pre></td></tr></table></figure>
+
+<p>如果没有声明列名,则默认插入所有列.</p>
+<p>因此,值应该与全部列,按顺序一一对应.</p>
+<p>如果声明了列（即name后），则values后面需要一一对应。</p>
+<h3 id="删-delete"><a href="#删-delete" class="headerlink" title="删 delete"></a>删 delete</h3><p>删除指的是删除表的一整行，<strong>而不是删除某一列中的值</strong></p>
+<p>1、删哪张表</p>
+<p>2、删哪几行  #where expression</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> &lt;表名&gt; [<span class="keyword">WHERE</span> 子句] [<span class="keyword">ORDER</span> <span class="keyword">BY</span> 子句] [<span class="keyword">LIMIT</span> 子句]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="改-update"><a href="#改-update" class="headerlink" title="改 update"></a>改 update</h3><p>1、改哪张表</p>
+<p>2、改哪几列</p>
+<p>3、改什么值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> &lt;表名&gt; <span class="keyword">set</span> &lt;列名&gt;=&lt;值或值的表达式&gt;  <span class="keyword">where</span> &lt;条件表达式&gt;；</span><br></pre></td></tr></table></figure>
+
+<p>①有where子句的，将满足WHERE条件的所有行的一个或多个列值改为新的值；</p>
+<p>②没有WHERE子句，则会对该表中所有的记录的指定的列的所有行，进行修改更新操作。</p>
+<h3 id="查select"><a href="#查select" class="headerlink" title="查select"></a>查select</h3><p>这一节只是查的基础入门</p>
+<p>1、查哪张表</p>
+<p>2、查哪些列</p>
+<p>3、查哪些行的数据?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> expe]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br></pre></td></tr></table></figure>
+
+<p><strong>少用select * from table</strong></p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
       
         <div id="donation_div"></div>
 
@@ -249,15 +295,20 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/01/07/1%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E5%BF%B5%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/07/4%E3%80%81MySQL%E4%B9%8B%E5%BB%BA%E8%A1%A8(create)/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          1、数据库概念通俗解释
+          4、MySQL之建表(create)
         
       </div>
     </a>
   
+  
+    <a href="/2020/01/07/2%E3%80%81MySQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C--10%E6%9D%A1%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2、MySQL基本操作--10条常用指令</div>
+    </a>
   
 </nav>
 
@@ -270,7 +321,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav">None</ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本节讲解MySQL中的增删改查"><span class="nav-number">1.</span> <span class="nav-text">本节讲解MySQL中的增删改查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表结构"><span class="nav-number">2.</span> <span class="nav-text">查看表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增-insert"><span class="nav-number">3.</span> <span class="nav-text">增 insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删-delete"><span class="nav-number">4.</span> <span class="nav-text">删 delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改-update"><span class="nav-number">5.</span> <span class="nav-text">改 update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查select"><span class="nav-number">6.</span> <span class="nav-text">查select</span></a></li></ol>
     
     </div>
   </aside>
