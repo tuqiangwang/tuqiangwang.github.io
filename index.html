@@ -162,6 +162,94 @@ var themeMenus = {};
         
           <section id="main">
   
+    <article id="post-关于翻墙"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/03/28/%E5%85%B3%E4%BA%8E%E7%BF%BB%E5%A2%99/">关于翻墙</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/03/28/%E5%85%B3%E4%BA%8E%E7%BF%BB%E5%A2%99/" class="article-date">
+	  <time datetime="2020-03-28T09:40:02.000Z" itemprop="datePublished">March 28, 2020</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>今天我们来聊聊Science上网。</p>
+<p><strong>【社会主义核心价值观的基本内容是：富强、民主、文明、和谐；自由、平等、公正、法治；爱国、敬业、诚信、友善】</strong></p>
+<p>为维护网络秩序，很大一批国外网站是被限制访问的，如Facebook、Instagram、Twitter、Google等。</p>
+<p>早些年，有许多VPN软件如雨后春笋般拔地而起，使得我们更加理性的爱国了。但好景不长，它们都倒闭了。但我心依然是中国心。</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200328182122.png" alt="中国心"></p>
+<p>本文将会手把手教你如何使用这些优质资源。考虑到使用群众的不同，我们会提供两种方法。</p>
+<h2 id="一、简易免费版"><a href="#一、简易免费版" class="headerlink" title="一、简易免费版"></a>一、简易免费版</h2><p>使用提供的免费ssr账号，免费的，用的人多，所以有速度限制，如果想高速，可自行购买JustMySocks，一个月四十多好像。</p>
+<p>具体添加方法：打开小火箭shadowrocket，依次添加即可。具体节点因为经常失效，故在公众号【软件好物】后台统一维护，回复【006】即可获取。</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200328190657.png" alt=""></p>
+<h2 id="二、自我搭建版"><a href="#二、自我搭建版" class="headerlink" title="二、自我搭建版"></a>二、自我搭建版</h2><p>更稳定、速度跟快，但搭建过程较为复杂。</p>
+<p>近些年，由于ss、ssr在国内被封的很厉害，推荐使用v2ray或者trojan，不过v2ray也分好几种，不是所有v2ray都是安全的，这里分享trojan的搭建教程，自我感觉比v2ray好用。</p>
+<h3 id="必备工具"><a href="#必备工具" class="headerlink" title="必备工具"></a>必备工具</h3><p>【<strong>一个域名</strong>】（腾讯云等都很便宜，还有优惠券，还会有很多一元一年域名的活动，尾缀名club等等这种）。</p>
+<p>【<strong>一个VPS</strong>】（美国的挺便宜的，香港地区普遍贵点，不想花钱可以用一年的免费谷歌VPS）。</p>
+<p>【<strong>基础Linux知识</strong>】</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><h3 id="1、VPS可以看看论坛攻略进行购买，购买后继续教程。"><a href="#1、VPS可以看看论坛攻略进行购买，购买后继续教程。" class="headerlink" title="1、VPS可以看看论坛攻略进行购买，购买后继续教程。"></a>1、VPS可以看看论坛攻略进行购买，购买后继续教程。</h3><h3 id="2、购买域名、解析（我买的是腾讯云）"><a href="#2、购买域名、解析（我买的是腾讯云）" class="headerlink" title="2、购买域名、解析（我买的是腾讯云）"></a>2、购买域名、解析（我买的是腾讯云）</h3><p>首先进入腾讯云主页，先点右上角的免费注册，注册登陆之后再产品这里选域名注册，热门里就有。</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/640.webp" alt="域名注册"></p>
+<p>购买之后点右上角进入控制台，搜索云解析，进入这样一个界面。点击你自己的域名，或者点击右边域名对应的解析。</p>
+<p><img src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200328193721.png" alt=""></p>
+<p>之后直接点击快速添加网站/邮箱解析，选择网站解析。之后输入刚才购买的vps的ip地址就好了，解析大概需要十分钟以内。</p>
+<p>![](F:\wechat stduio\第八期 科学上网\2020325-224936.jpg)</p>
+<p>到这里域名购买解析部分就结束了。</p>
+<h3 id="3、服务端搭建"><a href="#3、服务端搭建" class="headerlink" title="3、服务端搭建"></a>3、服务端搭建</h3><p>ssh登入vps的IP后，执行如下指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;atrandys&#x2F;trojan&#x2F;master&#x2F;trojan_centos7.sh &amp;&amp; chmod +x trojan_centos7.sh &amp;&amp; .&#x2F;trojan_centos7.sh</span><br></pre></td></tr></table></figure>
+
+<p>之后选1，回车，等待一下。过程中会提示需要输入域名，输入解析到本VPS的域名，然后回车。<br>等待之后，会出现安装完成的信息，是一个指向你域名下的一个下载链接，右键选中复制下来，然后粘贴进浏览器下载，下载下来是一个trojan-cil压缩包，解压点开文件夹下usr-&gt;src-&gt;trojan-cil-&gt;config.json，记下remote_addr, remote_addr, password三项。</p>
+<p>到这时候，用任意一个浏览器输入你刚才注册的域名，应该就可以看到一个这样的网站（如果你到这看不到网页，就别往下做了）。</p>
+<p>![](F:\wechat stduio\github\v2-dea0df91d1a25b621456ede8037f91b6_b.png)</p>
+<h3 id="4、客户端搭建"><a href="#4、客户端搭建" class="headerlink" title="4、客户端搭建"></a>4、客户端搭建</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>打开v2rayN客户端，双击左键点开，选择服务器，添加Trojan服务器。将之前在第三步中记下的参数(地址，端口，密码)输入这里，然后点击确定，就OK啦~</p>
+<p>如客户端运行Trojan报错，请尝试下载以下软件，安装完毕再运行Trojan</p>
+<ul>
+<li><a href="https://www.microsoft.com/zh-CN/download/details.aspx?id=48145" target="_blank" rel="noopener">isual C++ 2015 (x64、x86均安装)</a></li>
+<li><a href="https://support.microsoft.com/zh-cn/help/3151800/the-net-framework-4-6-2-offline-installer-for-windows" target="_blank" rel="noopener">Windows.NET Framework 4.6.2</a></li>
+</ul>
+<h4 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h4><p>小火箭shadowrocket，需要美区AppleID，两个途径：1、淘宝自己买一个美区ID，10块左右；2、网络共享ID，如下，<strong>易失效，仅限从APPstore登录，不然会被锁住</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">美区账号：ff4304f9@icloud.com，密码：Share1100</span><br><span class="line">美区账号：kobelbj1412@gmail.com，密码：IOSfuli99</span><br><span class="line">账号：stonerock8866@gmail.com，密码：Yk520520</span><br><span class="line">账号：zhiwu1966@163.com，密码：Thessr.cn1</span><br></pre></td></tr></table></figure>
+
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>小火箭shadowrocket</p>
+<h2 id="相关软件"><a href="#相关软件" class="headerlink" title="相关软件"></a>相关软件</h2><p>文中相关软件，公众号【软件好物】，回复【008】可获取，ios的小火箭需自行下载，因为我给你提供了，他还是需要AppleID和密码。</p>
+<h2 id="写在文末"><a href="#写在文末" class="headerlink" title="写在文末"></a>写在文末</h2><p>来，我们回顾一下核心价值观：</p>
+<p><strong>富强、民主、文明、和谐，是国家层面的价值目标；</strong></p>
+<p><strong>自由、平等、公正、法治，是社会层面的价值取向；</strong></p>
+<p><strong>爱国、敬业、诚信、友善，是公民个人层面的价值准则。</strong></p>
+<h3 id="其实，翻墙久了，会变得越来越爱国！"><a href="#其实，翻墙久了，会变得越来越爱国！" class="headerlink" title="其实，翻墙久了，会变得越来越爱国！"></a>其实，翻墙久了，会变得越来越爱国！</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5388845&auto=1&height=66"></iframe>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%A5%BD%E7%89%A9/" rel="tag">软件好物</a></li></ul>
+
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
     <article id="post-随笔-MCU"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -723,70 +811,6 @@ ok let‘s start。
     
 
   
-    <article id="post-15、MySQL中的存储引擎"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/01/08/15%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">15、MySQL中的存储引擎</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2020/01/08/15%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/" class="article-date">
-	  <time datetime="2020-01-08T08:54:05.000Z" itemprop="datePublished">January 8, 2020</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2020/01/08/15%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"><img width="250" height="175" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/mysql_fenmian.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          存储引擎一部电影, mp4,wmv,avi,rmvb,flv, 同样的一部电影,在硬盘上有不同的存储格式,
-所占空间与清晰程度也不一样.
-表里的数据存储在硬盘上,具体如何存储的?
-存储的方式方法也有多种.
-对于用户来说       同样一张表的数据,无论用什么引擎来存储,用户看到的数据是一样的.
-但是对于服务器来说,有区别.
-常用的表的引擎
-Myisam ,批量插入速度快, 不支持事务,锁表...
-
-        
-          <p class="article-more-link">
-            <a href="/2020/01/08/15%E3%80%81MySQL%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-    
-
-  
 
 
   <nav id="page-nav">
@@ -886,6 +910,18 @@ Myisam ,批量插入速度快, 不支持事务,锁表...
           <li class="clearfix">
 
             
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/03/28/%E5%85%B3%E4%BA%8E%E7%BF%BB%E5%A2%99/">关于翻墙</a></h6>
+              <span>March 28, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
               <div class="widget-entry-thumbnail">
                 <a href="/2020/03/19/%E9%9A%8F%E7%AC%94-MCU/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/漫威宇宙.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
@@ -958,21 +994,6 @@ Myisam ,批量插入速度快, 不支持事务,锁表...
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-thumbnail">
-                <a href="/2020/02/01/%E9%9A%8F%E7%AC%94-%E6%AD%A6%E6%B1%89%E7%96%AB%E6%83%85/" title=""><img width="50" height="50" src="https://raw.githubusercontent.com/tuqiangwang/image_source/master/img/20200201231228.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
-              </div>
-              <div class="widget-entry-summary">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/02/01/%E9%9A%8F%E7%AC%94-%E6%AD%A6%E6%B1%89%E7%96%AB%E6%83%85/">随笔--武汉疫情</a></h6>
-              <span>February 1, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -985,7 +1006,7 @@ Myisam ,批量插入速度快, 不支持事务,锁表...
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a><span class="tag-list-count">9</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%A5%BD%E7%89%A9/" rel="tag">软件好物</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a><span class="tag-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -995,7 +1016,7 @@ Myisam ,批量插入速度快, 不支持事务,锁表...
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+      <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%A5%BD%E7%89%A9/" style="font-size: 10px;">软件好物</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a>
     </div>
   </div>
 
@@ -1005,7 +1026,7 @@ Myisam ,批量插入速度快, 不支持事务,锁表...
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">21</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">21</span></li></ul>
     </div>
   </div>
 
